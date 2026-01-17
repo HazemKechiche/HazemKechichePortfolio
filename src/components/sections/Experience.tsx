@@ -4,7 +4,7 @@ export const Experience = () => {
       period: "Apr 2025 - Oct 2025",
       title: "Stage PFE • Axia Solutions",
       description: "Developed a high-concurrency Medical Platform with .NET & React. Integrated WebRTC for telemedicine and ML.NET/BioClinicalBERT for intelligent diagnostics.",
-      active: true
+      active: false
     },
     {
       period: "Jul 2024 - Sep 2024",

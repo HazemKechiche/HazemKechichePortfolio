@@ -34,7 +34,8 @@ const PROJECTS_DATA: Project[] = [
     longDescription: "Developed at Axia Solutions, this platform integrates WebRTC for low-latency video calls. I built a recommendation system using ML.NET and a disease prediction API via FastAPI/BioClinicalBERT. The backend utilizes .NET 8 and SignalR for real-time synchronization.",
     techStack: ["React.js", ".NET 8", "SQL Server", "WebRTC", "SignalR", "ML.NET", "Python", "FastAPI", "BioClinicalBERT"],
     highlights: ["Real-time Audio/Video", "AI Disease Prediction", "Smart Doctor Matching", "Digital Medical Records"],
-    videoDemo: "/assets/videos/media1.mp4",
+    videoDemo: "https://dl.dropboxusercontent.com/scl/fi/dx4ktao20olfus27zj25m/media1.mp4?rlkey=3le7dczmwiw6mbkvz5thmojnc&st=4x228z9c&dl=0",
+
     githubUrl: "https://github.com/HazemKechiche/GestionHopital-Front-Dashbord/tree/FirstVersion"
 
 

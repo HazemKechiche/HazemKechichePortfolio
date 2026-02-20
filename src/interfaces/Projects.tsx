@@ -5,6 +5,8 @@ export interface Project {
   company?: string;
   description: string;
   longDescription: string;
+  problem?: string;
+  solution?: string;
   techStack: string[];
   highlights: string[];
   // --- Nouveaux Champs Premium ---

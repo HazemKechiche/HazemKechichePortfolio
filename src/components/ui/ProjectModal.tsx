@@ -83,11 +83,33 @@ export const ProjectModal = ({ project, onClose }: Props) => {
                <MediaShowcase project={project} />
             </div>
 
+            {project.problem && (
+              <motion.section custom={1} initial="hidden" animate="visible" variants={sectionVariants}>
+                <h4 className="flex items-center gap-2 text-white font-black mb-4 uppercase tracking-widest text-xs">
+                  <Layers size={16} className="text-blue-500" /> Problem
+                </h4>
+                <p className="text-slate-400 text-lg leading-relaxed font-medium">
+                  {project.problem}
+                </p>
+              </motion.section>
+            )}
+
+            {project.solution && (
+              <motion.section custom={1} initial="hidden" animate="visible" variants={sectionVariants}>
+                <h4 className="flex items-center gap-2 text-white font-black mb-4 uppercase tracking-widest text-xs">
+                  <Zap size={16} className="text-blue-500" /> Solution
+                </h4>
+                <p className="text-slate-400 text-lg leading-relaxed font-medium">
+                  {project.solution}
+                </p>
+              </motion.section>
+            )}
+
             <motion.section custom={1} initial="hidden" animate="visible" variants={sectionVariants}>
-              <h4 className="flex items-center gap-2 text-white font-black mb-6 uppercase tracking-widest text-xs">
-                <Layers size={16} className="text-blue-500" /> Executive Summary
+              <h4 className="flex items-center gap-2 text-white font-black mb-4 uppercase tracking-widest text-xs">
+                <Layers size={16} className="text-blue-500" /> Overview
               </h4>
-              <p className="text-slate-400 text-xl leading-relaxed font-medium">
+              <p className="text-slate-400 text-lg leading-relaxed font-medium">
                 {project.longDescription}
               </p>
             </motion.section>
@@ -105,7 +127,7 @@ export const ProjectModal = ({ project, onClose }: Props) => {
 
             <motion.section custom={3} initial="hidden" animate="visible" variants={sectionVariants}>
               <h4 className="flex items-center gap-2 text-white font-black mb-6 uppercase tracking-widest text-xs">
-                <Target size={16} className="text-blue-500" /> Key Deliverables
+                <Target size={16} className="text-blue-500" /> Results & Deliverables
               </h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {project.highlights.map((h, idx) => (

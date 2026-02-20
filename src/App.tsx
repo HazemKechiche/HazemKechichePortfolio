@@ -7,9 +7,12 @@ import { motion, AnimatePresence, useSpring, useMotionValue, useMotionTemplate }
 // Section Components
 import { Hero } from "./components/sections/Hero";
 import { About } from "./components/sections/About";
+import { Services } from "./components/sections/Services";
 import { Experience } from "./components/sections/Experience";
 import { Contact } from "./components/sections/Contact";
 import { ProjectGrid } from "./components/sections/Projects";
+import { Credibility } from "./components/sections/Credibility";
+import { Impact } from "./components/sections/Impact";
 
 // UI Components
 import { ProjectModal } from "./components/ui/ProjectModal";
@@ -31,6 +34,8 @@ const PROJECTS_DATA: Project[] = [
     period: "Apr 2025 - Oct 2025",
     company: "Axia Solutions",
     description: "AI-powered teleconsultation platform with real-time WebRTC communication.",
+    problem: "Healthcare providers lacked efficient tools for remote patient consultation, intelligent diagnosis assistance, and seamless doctor-patient matching.",
+    solution: "Built an AI-powered teleconsultation platform with real-time video calls, smart doctor matching via ML.NET, and a disease prediction API using FastAPI and BioClinicalBERT.",
     longDescription: "Developed at Axia Solutions, this platform integrates WebRTC for low-latency video calls. I built a recommendation system using ML.NET and a disease prediction API via FastAPI/BioClinicalBERT. The backend utilizes .NET 8 and SignalR for real-time synchronization.",
     techStack: ["React.js", ".NET 8", "SQL Server", "WebRTC", "SignalR", "ML.NET", "Python", "FastAPI", "BioClinicalBERT"],
     highlights: ["Real-time Audio/Video", "AI Disease Prediction", "Smart Doctor Matching", "Digital Medical Records"],
@@ -47,6 +52,8 @@ const PROJECTS_DATA: Project[] = [
     period: "Oct 2024 - Nov 2024",
     company: "ESPRIT",
     description: "CI/CD pipeline automation reducing production time by 40%.",
+    problem: "Manual deployment processes were slow, error-prone, and lacked automated quality assurance, slowing down the entire development lifecycle.",
+    solution: "Engineered an automated CI/CD pipeline with quality gates via SonarQube, containerized deployments with Docker, and real-time infrastructure monitoring using Prometheus and Grafana.",
     longDescription: "Engineered a professional DevOps pipeline to automate the software lifecycle. Integrated SonarQube for static analysis and Prometheus/Grafana for infrastructure monitoring, ensuring a high-quality deployment flow.",
     techStack: ["Jenkins", "GitHub", "SonarQube", "JUnit", "Mockito", "Docker", "Grafana", "Prometheus"],
     highlights: ["40% Speed Increase", "Unit Test Automation", "Infrastructure Monitoring", "Quality Gate Enforcement"],
@@ -59,6 +66,8 @@ const PROJECTS_DATA: Project[] = [
     period: "Mar 2024 - Jun 2024",
     company: "ESPRIT",
     description: "Enterprise system for secure data management and complex transformations.",
+    problem: "Organizations struggled with inconsistent data quality and lacked unified tools for complex data transformation and governance.",
+    solution: "Built high-performance data transformation modules for concatenation, type conversion, and cleansing, enabling better organizational decision-making.",
     longDescription: "Focused on the data transformation layer, building high-performance modules for data concatenation, type conversion, and cleansing to improve organizational decision-making quality.",
     techStack: ["Spring Boot", "Angular", "MongoDB", "NoSQL"],
     highlights: ["Data Concatenation", "Type Conversion Engine", "Data Cleansing", "Intricate SQL/NoSQL logic"],
@@ -70,6 +79,8 @@ const PROJECTS_DATA: Project[] = [
     period: "Mar 2023 - Jun 2023",
     company: "ESPRIT",
     description: "Integrated Web, Mobile, and Desktop management for recycling events.",
+    problem: "Recycling event management lacked cross-platform coordination and tools to drive user engagement and participation.",
+    solution: "Developed a cross-platform event management ecosystem with automated ticketing, reward lotteries, email integration, and social media APIs.",
     longDescription: "Developed a cross-platform event management system featuring automated ticketing, reward lottery systems with email integration, and social media sharing APIs to drive engagement.",
     techStack: ["Symfony", "Codename One", "JavaFX", "MySQL"],
     highlights: ["Cross-platform Sync", "Automated Email Notifications", "Ticketing System", "Social API Integration"], githubUrl: "https://github.com/WassefTalbi/gestion_recyclage/tree/gestion_evenement"
@@ -80,6 +91,8 @@ const PROJECTS_DATA: Project[] = [
     period: "Jan 2026",
     company: "Self",
     description: "Interactive and modern portfolio showcasing my projects and skills using React.js, Vite, Tailwind, and Framer Motion.",
+    problem: "Needed a professional online presence to showcase technical skills, projects, and attract recruiters and clients.",
+    solution: "Built an interactive portfolio with smooth animations, video previews, project showcases, and a conversion-optimized layout.",
     longDescription: "Built a professional portfolio to display projects, media galleries, and technical expertise. Features smooth animations, responsive design, video previews, and a lightbox gallery to enhance user experience and impress recruiters.",
     techStack: ["React.js", "TypeScript", "Vite", "Tailwind CSS", "Framer Motion", "Lucide Icons"],
     highlights: [
@@ -98,6 +111,8 @@ const PROJECTS_DATA: Project[] = [
     period: "Nov 2025 - Dec 2025",
     company: "ESPRIT / Android Studio",
     description: "Mobile application for user management with secure authentication and role-based access.",
+    problem: "Needed a secure, role-based user management system for mobile platforms with robust authentication and verification flows.",
+    solution: "Developed a full-featured mobile app with role-based permissions, double email verification, password reset, and account management.",
     longDescription: "Developed a full-featured mobile app using Android Studio to manage users efficiently. Features include role-based permissions, signup/signin, password reset, double verification via email, account banning, and responsive UI/UX design.",
     techStack: ["Android Studio", "Java/Kotlin", "Firebase Auth", "SQLite", "Material Design", "Email Verification"],
     highlights: [
@@ -122,6 +137,8 @@ const PROJECTS_DATA: Project[] = [
     period: "Feb 2025",
     company: "ESPRIT / Workshop",
     description: "Implemented a network security solution using pfSense to protect a local network with internal and DMZ segments.",
+    problem: "Local networks lacked proper segmentation, intrusion detection, and secure remote access capabilities.",
+    solution: "Configured pfSense firewall with LAN/DMZ segmentation, Snort IDS for intrusion detection, and OpenVPN for secure remote access.",
     longDescription: "In this workshop, I configured and implemented a network security solution based on pfSense to protect a local network composed of two machines: one on Ubuntu (internal network) and one in a DMZ (demilitarized zone). pfSense was installed as a firewall to segment the network and apply security rules between LAN, DMZ, and external access. Snort was integrated to monitor network traffic and detect intrusion attempts. OpenVPN was configured to allow secure remote access to the local network. The architecture isolated the DMZ machine, limiting access only from the internal machine, and provided active protection against threats, demonstrating the effectiveness of open-source tools in enhancing network security.",
     techStack: ["pfSense", "Snort", "OpenVPN", "Ubuntu", "Network Security", "Firewall", "DMZ Configuration"],
     highlights: [
@@ -199,6 +216,8 @@ export default function HazemFinalPortfolio() {
 
           <About />
 
+          <Services />
+
           <section id="skills" className="py-32 relative z-40 overflow-hidden">
             <SkillRadarSection />
           </section>
@@ -209,6 +228,10 @@ export default function HazemFinalPortfolio() {
             projects={PROJECTS_DATA}
             onSelect={setSelectedProject}
           />
+
+          <Impact />
+
+          <Credibility />
 
           <Contact />
         </main>
